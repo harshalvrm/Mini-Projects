@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter app</title>
+</head>
+<body>
+<div class="score">
+    <h2>Score</h2>
+    <span id="value">0</span>
+    <br>
+</div>
+<div class="allbtn">
+    <button class="btn increase">Plus</button>
+    <button class="btn reset">Reset</button>
+    <button class="btn decrease">Minus</button>
+</div>
+</body>
+<script>
+
+let count = 0;
+let value = document.getElementById("value");
+let btns = document.querySelectorAll(".btn");
+// console.log(btn);
+
+btns.forEach(function (item) {
+    item.addEventListener("click", function (val) {
+    let style = val.currentTarget.classList;
+    if(style.contains("increase")){
+        count++; 
+    }
+
+    else if(style.contains("decrease")){
+        count--;
+    }
+
+    else {
+        count = 0;
+    }
+
+    value.textContent=count;
+    });
+});
+</script>
+
+<style>
+    .allbtn{
+display: flex;
+justify-content: center;
+align-items: center;
+    }
+</style>
+
+</html>
