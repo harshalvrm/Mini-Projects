@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random background color</title>
+</head>
+<body>
+    <!-- 
+        1- Generate Random Number (alpha numeric)
+        2- concatenate with "#"
+        3- use DOM to change the color
+     -->
+
+    <button id="btn">Click Me to Change Color</button>
+
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn{
+            padding: 25px;
+            font-size: 16px;
+            border-radius: 25px;
+            background-color: #808080;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script>
+        const btn = document.getElementById("btn");
+
+        //Generating Hex Value
+        const updatecolor = () => {
+            let val = "0123456789ABCDEF"
+            let constant = "#"
+            for (let i = 0; i < 6; i++)
+            {
+                constant = constant + val[Math.floor(Math.random()*16)];
+            }
+        return constant;
+
+    };
+
+        function changeRadomColor(){
+            document.body.style.backgroundColor = updatecolor();
+        }
+
+        btn.addEventListener("click", changeRadomColor);
+
+</script>
+
+</body>
+</html>
